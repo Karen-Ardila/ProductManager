@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const CreateProduct = () => {
+const CreateProduct = ({setUpdated}) => {
     const [productName, setProductName] = useState('');
     const [price, setPrice] = useState(0);
     const [description, setDescription] = useState('');
@@ -9,7 +9,10 @@ const CreateProduct = () => {
     const handleOnSubmit = (e) => {
         e.preventDefault();
         axios.post(`${process.env.REACT_APP_BACKEND_URL}/products`, { title: productName, price: price, description: description })
-            .then(res => console.log(res))
+            .then(res => {
+                console.log(res)
+                setUpdated(Date())
+            })
             .catch(err => console.log(err))
     }
 
