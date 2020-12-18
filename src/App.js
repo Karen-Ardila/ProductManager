@@ -6,6 +6,7 @@ function App() {
   const [updated, setUpdated] = useState(Date());
   return (
     <div>
+      <h1>Welcome to product manager</h1>
       <CreateProduct setUpdated={setUpdated} />
       <ProductList updated={updated} />
     </div>
